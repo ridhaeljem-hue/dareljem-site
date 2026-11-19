@@ -462,3 +462,11 @@ noscript .nojs a{color:var(--peche)}
 
 /* audit : sur mobile, les infobulles du plan sont masquées (la légende sous le plan les remplace) */
 @media (max-width:560px){.pin .tip{display:none}}
+
+/* Contenu des articles saisi dans le back-office (Pages CMS) */
+.article .body h2{font-family:var(--f-display);font-size:1.55rem;color:var(--pourpre);margin:2.6rem 0 1rem;line-height:1.2}
+.article .body h4{font-size:1.05rem;color:var(--pourpre);margin:1.8rem 0 .6rem}
+.article .body ul,.article .body ol{font-size:1.1rem;line-height:1.75;margin:0 0 1.3rem;padding-inline-start:1.4rem}
+.article .body img{display:block;width:100%;height:auto;border-radius:4px;margin:2rem 0}
+.article .body a{color:var(--rouge)}
+.article .body hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}

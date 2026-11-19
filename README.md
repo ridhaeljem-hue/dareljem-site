@@ -17,6 +17,10 @@ Site statique : HTML, CSS et JavaScript, sans serveur ni base de données. Hébe
 | `robots.txt`, `sitemap.xml` | Référencement Google |
 | `site.webmanifest`, `favicon.ico` | Icônes de l'onglet et de l'écran d'accueil mobile |
 | `.nojekyll` | Indique à GitHub Pages de publier les fichiers tels quels (à garder, même s'il est vide) |
+| `content/chroniques/` | Les articles du blog (un fichier par article, modifiés par le back-office) |
+| `assets/data/chroniques.json` | Liste des articles lue par le site (générée automatiquement) |
+| `.pages.yml` | Configuration du back-office Pages CMS |
+| `.github/workflows/deploy.yml`, `scripts/build.py` | Publication automatique du site |
 
 ## Avant la mise en ligne : à compléter
 
@@ -76,11 +80,26 @@ Si le domaine n'est pas branché tout de suite, le site fonctionne sur l'adresse
 ## Limites connues
 
 - **Formulaires via WhatsApp** : la demande n'arrive que si le visiteur appuie sur « Envoyer » dans WhatsApp. Ajouter Formspree en complément si vous voulez une copie par e-mail.
-- **Chroniques** : les articles sont dans `assets/js/app.js`, ce qui les rend moins bien référencés par Google que de vraies pages. L'étape suivante prévue est de les passer en pages séparées gérées avec Pages CMS.
+- **Chroniques** : les articles sont affichés par JavaScript, ce qui les rend moins bien référencés par Google que des pages séparées. C'est une évolution possible.
 - **Repères du plan sur mobile** : certains repères sont proches les uns des autres. La liste juste sous le plan donne le même accès, en plus grand.
+
+## Back-office des Chroniques (Pages CMS)
+
+Les articles se gèrent depuis **https://app.pagescms.org**, sans toucher au code.
+
+- Chaque article est un fichier dans `content/chroniques/`. Les photos envoyées depuis le back-office vont dans `assets/img/chroniques/`.
+- À chaque enregistrement, GitHub Actions (`.github/workflows/deploy.yml`) lance `scripts/build.py`. Ce script :
+  - rassemble les articles publiés dans `assets/data/chroniques.json` ;
+  - allège les photos trop lourdes ;
+  - publie le site.
+
+  Compter 1 à 2 minutes.
+- La configuration du back-office (champs, libellés) est dans `.pages.yml`.
+- Si un article n'apparaît pas : onglet **Actions** du dépôt. La dernière exécution doit avoir une coche verte.
 
 ## Modifier un contenu
 
-- **Textes, prix, menus, avis, articles** : `assets/js/app.js`. Chaque texte existe en `fr` et en `en` : modifier les deux.
+- **Articles (Chroniques)** : depuis le back-office Pages CMS.
+- **Textes, prix, menus, avis** : `assets/js/app.js`. Chaque texte existe en `fr` et en `en` : modifier les deux.
 - **Photos** : remplacer le fichier dans `assets/img/` en gardant le même nom, au format WebP (largeur 1400 à 1600 px).
 - **WhatsApp** : numéro dans `assets/js/app.js` (`WA_NUM`) et dans `index.html` (liens `wa.me/21698277634`).

@@ -1,0 +1,17 @@
+{
+  "publie": true,
+  "titre_fr": "Le garum, la sauce que Rome mettait partout",
+  "titre_en": "Garum, the sauce Rome put on everything",
+  "date": "2026-11-04",
+  "categorie": "cuisine",
+  "image": "assets/img/cs-garum.webp",
+  "resume_fr": "Des poissons, du sel, du temps : retour sur l’assaisonnement préféré des cuisines romaines.",
+  "resume_en": "Fish, salt and time: the story of the Roman kitchen’s favourite seasoning.",
+  "contenu_fr": "<p>Sur les tables romaines, une sauce revenait sans cesse : le garum. On le versait sur les viandes, les légumes, les œufs, parfois même dans les douceurs. Pour un Romain, c’était l’équivalent de notre sel… en beaucoup plus parfumé.</p>\n<h3>Des poissons, du sel et du soleil</h3>\n<p>La recette tient en trois ingrédients. On dispose en couches des petits poissons entiers et du sel dans de grandes cuves, puis on laisse le soleil et le temps faire leur œuvre pendant des semaines. Le liquide ambré qui s’en écoule est filtré : c’est le garum. Ce qui reste, plus épais, servait aussi en cuisine.</p>\n<blockquote>« Une sauce qui sentait la mer et qui rendait chaque plat plus savoureux. »</blockquote>\n<p>Les côtes d’Afrique du Nord, riches en poissons et en sel, comptaient de nombreux ateliers de salaison. Le garum voyageait ensuite en amphores dans tout le monde romain.</p>\n<h3>Au cooking show de Dar El Jem</h3>\n<p>Pendant le cooking show, notre chef montre la préparation des poissons salés, étape par étape, et vous fait goûter les saveurs d’une cuisine vieille de près de deux mille ans.</p>",
+  "contenu_en": "<p>One sauce kept coming back on Roman tables: garum. It was poured over meat, vegetables and eggs, sometimes even sweets. For a Roman it was the equivalent of our salt, only far more fragrant.</p>\n<h3>Fish, salt and sunshine</h3>\n<p>The recipe has three ingredients. Small whole fish and salt are layered in large vats, then the sun and time do the work for weeks. The amber liquid that runs off is filtered: that is garum. The thicker remains were also used in the kitchen.</p>\n<blockquote>“A sauce that smelled of the sea and made every dish more delicious.”</blockquote>\n<p>The coasts of North Africa, rich in fish and salt, had many salting workshops. Garum then travelled in amphorae across the whole Roman world.</p>\n<h3>At the Dar El Jem cooking show</h3>\n<p>During the cooking show, our chef shows how salted fish is prepared, step by step, and lets you taste the flavours of a cuisine nearly two thousand years old.</p>",
+  "galerie": [
+    "assets/img/cs-garum-b.webp",
+    "assets/img/cs-sardines.webp"
+  ],
+  "experience": "cooking"
+}

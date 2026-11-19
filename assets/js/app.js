@@ -175,168 +175,8 @@ en:[['All in one place','A complete visit on a single site: museum, workshop, me
 /*  3. Chroniques (gérées par le CMS en production)                    */
 /* ------------------------------------------------------------------ */
 const CATS = { cuisine:{fr:'Cuisine antique',en:'Ancient cooking'}, mosaique:{fr:'Mosaïque',en:'Mosaic'}, histoire:{fr:'Histoire de Thysdrus',en:'Thysdrus history'}, vie:{fr:'Vie du lieu',en:'Life at Dar El Jem'} };
-const POSTS = [
- { id:'garum', cat:'cuisine', img:'cs-garum.webp', min:5, date:'2026-11-04', fig:['cs-garum-b.webp','cs-sardines.webp'], cta:'cooking',
-   fr:{t:'Le garum, la sauce que Rome mettait partout', x:'Des poissons, du sel, du temps : retour sur l’assaisonnement préféré des cuisines romaines.'},
-   en:{t:'Garum, the sauce Rome put on everything', x:'Fish, salt and time: the story of the Roman kitchen’s favourite seasoning.'} },
- { id:'cailles', cat:'cuisine', img:'cs-caille.webp', min:3, date:'2026-11-02', cta:'restaurant',
-   fr:{t:'Cailles farcies : une recette dans l’esprit d’Apicius', x:'Épices, herbes, miel et sauces : une recette de cailles farcies inspirée de l’univers d’Apicius.'},
-   en:{t:'Stuffed quail in the spirit of Apicius', x:'Spices, herbs, honey and sauces: a stuffed quail recipe inspired by the world of Apicius.'} },
- { id:'thysdrus', cat:'histoire', img:'photo-6.webp', min:6, date:'2026-10-31',
-   fr:{t:'Thysdrus, la cité de l’huile d’olive : aux origines de la prospérité d’El Jem', x:'Bien avant son amphithéâtre, Thysdrus vivait de l’olivier et du commerce de l’huile.'},
-   en:{t:'Thysdrus, the city of olive oil: the roots of El Jem’s prosperity', x:'Long before its amphitheatre, Thysdrus lived from the olive tree and the oil trade.'} },
- { id:'mosaique', cat:'mosaique', img:'photo-9.webp', min:6, date:'2026-10-29', cta:'atelier',
-   fr:{t:'L’art de la mosaïque à Thysdrus : techniques, motifs et couleurs', x:'Savoir-faire, imagination et richesse artistique : ce que racontent les mosaïques d’El Jem.'},
-   en:{t:'The art of mosaic in Thysdrus: techniques, motifs and colours', x:'Skill, imagination and artistic richness: what the mosaics of El Jem tell us.'} },
- { id:'pain', cat:'cuisine', img:'resto-pain.webp', min:2, date:'2026-10-27', cta:'restaurant',
-   fr:{t:'Le pain romain, blé dur, orge et sésame', x:'Le pain romain était fait de blé dur, d’orge et de sésame.'},
-   en:{t:'Roman bread: durum wheat, barley and sesame', x:'Roman bread was made with durum wheat, barley and sesame.'} },
- { id:'coulisses', cat:'vie', img:'photo-8.webp', min:3, date:'2026-10-25', fig:['photo-7.webp','cs-dattes.webp'], cta:'cooking',
-   fr:{t:'Dans les coulisses du cooking show : une journée avec notre chef', x:'Comment préparait-on un repas à l’époque romaine ? L’expérience commence bien avant que les plats arrivent sur la table.'},
-   en:{t:'Behind the scenes of the cooking show: a day with our chef', x:'How was a meal prepared in Roman times? The experience starts long before the dishes reach the table.'} }
-];
-const BODIES = {
-garum:{
-fr:`<p>Sur les tables romaines, une sauce revenait sans cesse : le garum. On le versait sur les viandes, les légumes, les œufs, parfois même dans les douceurs. Pour un Romain, c’était l’équivalent de notre sel… en beaucoup plus parfumé.</p>
-<h3>Des poissons, du sel et du soleil</h3>
-<p>La recette tient en trois ingrédients. On dispose en couches des petits poissons entiers et du sel dans de grandes cuves, puis on laisse le soleil et le temps faire leur œuvre pendant des semaines. Le liquide ambré qui s’en écoule est filtré : c’est le garum. Ce qui reste, plus épais, servait aussi en cuisine.</p>
-<blockquote>« Une sauce qui sentait la mer et qui rendait chaque plat plus savoureux. »</blockquote>
-<p>Les côtes d’Afrique du Nord, riches en poissons et en sel, comptaient de nombreux ateliers de salaison. Le garum voyageait ensuite en amphores dans tout le monde romain.</p>
-<h3>Au cooking show de Dar El Jem</h3>
-<p>Pendant le cooking show, notre chef montre la préparation des poissons salés, étape par étape, et vous fait goûter les saveurs d’une cuisine vieille de près de deux mille ans.</p>`,
-en:`<p>One sauce kept coming back on Roman tables: garum. It was poured over meat, vegetables and eggs, sometimes even sweets. For a Roman it was the equivalent of our salt, only far more fragrant.</p>
-<h3>Fish, salt and sunshine</h3>
-<p>The recipe has three ingredients. Small whole fish and salt are layered in large vats, then the sun and time do the work for weeks. The amber liquid that runs off is filtered: that is garum. The thicker remains were also used in the kitchen.</p>
-<blockquote>“A sauce that smelled of the sea and made every dish more delicious.”</blockquote>
-<p>The coasts of North Africa, rich in fish and salt, had many salting workshops. Garum then travelled in amphorae across the whole Roman world.</p>
-<h3>At the Dar El Jem cooking show</h3>
-<p>During the cooking show, our chef shows how salted fish is prepared, step by step, and lets you taste the flavours of a cuisine nearly two thousand years old.</p>`},
-cailles:{
-fr:`<p>À la table des Romains, la cuisine était un art dans lequel les épices, les herbes aromatiques, le miel et les sauces occupaient une place essentielle. Les cailles, appréciées pour leur chair délicate, se prêtent parfaitement à une préparation s’inspirant des traditions culinaires de la Rome antique.</p>
-<p>Chez Dar El Jem, nous vous invitons à découvrir une recette de cailles farcies s’inspirant de l’univers gastronomique d’Apicius, célèbre auteur du recueil culinaire <em>De re coquinaria</em>. Une interprétation gourmande qui vous fera revivre les saveurs de l’Antiquité et vous plongera dans l’art de recevoir à la romaine.</p>
-<blockquote>Une expérience culinaire alliant histoire, traditions et plaisirs de la table.</blockquote>
-<p class="aside">Précision historique : il s’agit d’une recette inspirée de la cuisine romaine antique, et non nécessairement d’une recette authentique directement attribuée à Apicius.</p>`,
-en:`<p>At the Roman table, cooking was an art in which spices, aromatic herbs, honey and sauces played an essential part. Quail, prized for its delicate meat, lends itself perfectly to a preparation inspired by the culinary traditions of ancient Rome.</p>
-<p>At Dar El Jem, we invite you to discover a stuffed quail recipe inspired by the gastronomic world of Apicius, the famous author of the cookbook <em>De re coquinaria</em>. A gourmet interpretation that brings back the flavours of antiquity and immerses you in the Roman art of hospitality.</p>
-<blockquote>A culinary experience combining history, tradition and the pleasures of the table.</blockquote>
-<p class="aside">Historical note: this recipe is inspired by ancient Roman cooking and is not necessarily an authentic recipe directly attributed to Apicius.</p>`},
-pain:{
-fr:`<p>Le pain romain était fait de blé dur, d’orge et de sésame.</p>
-<p>À l’époque romaine, le pain occupait une place essentielle dans l’alimentation quotidienne. Préparé à partir de différentes céréales, il accompagnait aussi bien les repas modestes que les tables les plus raffinées.</p>
-<p>Chez Dar El Jem, notre pain romain s’inspire de cette tradition antique. Le blé dur et l’orge lui confèrent un caractère rustique, tandis que les graines de sésame apportent une touche parfumée et croquante.</p>
-<p>Une recette aux saveurs authentiques qui invite à redécouvrir les céréales et les traditions culinaires de l’Antiquité.</p>
-<blockquote>Un pain de caractère, inspiré du patrimoine gastronomique romain.</blockquote>`,
-en:`<p>Roman bread was made with durum wheat, barley and sesame.</p>
-<p>In Roman times, bread held an essential place in the daily diet. Made from different cereals, it accompanied humble meals as well as the most refined tables.</p>
-<p>At Dar El Jem, our Roman bread is inspired by this ancient tradition. Durum wheat and barley give it a rustic character, while sesame seeds add a fragrant, crunchy touch.</p>
-<p>A recipe with authentic flavours that invites you to rediscover the cereals and culinary traditions of antiquity.</p>
-<blockquote>A bread with character, inspired by Rome’s culinary heritage.</blockquote>`},
-thysdrus:{
-fr:`<p>Bien avant de devenir célèbre pour son immense amphithéâtre, Thysdrus, l’actuelle El Jem, était au cœur d’une région agricole prospère, étroitement liée à la culture de l’olivier et au commerce de l’huile.</p>
-<h3>L’olivier, une richesse au cœur de l’Afrique romaine</h3>
-<p>Dans l’Antiquité, l’huile d’olive était bien plus qu’un ingrédient de cuisine. Elle servait à préparer les repas, à alimenter les lampes, à prendre soin du corps et à accompagner certaines pratiques religieuses. Indispensable à la vie quotidienne, elle constituait aussi une ressource économique majeure dans plusieurs régions du monde méditerranéen.</p>
-<p>En Afrique romaine, la culture de l’olivier prit une importance considérable. Située dans une région favorable aux activités agricoles, Thysdrus bénéficiait de cette dynamique. La ville devint un centre important d’échanges, au carrefour des routes reliant les territoires agricoles aux marchés de la région.</p>
-<h3>Une ville prospère grâce à son territoire</h3>
-<p>La richesse de Thysdrus ne peut se comprendre sans tenir compte de son arrière-pays. La production agricole, notamment celle de l’huile d’olive, participait à l’activité commerciale qui animait la cité.</p>
-<p>L’huile était transportée et commercialisée à différentes échelles. Sa production mobilisait des terres, des équipements spécialisés et une organisation du travail capable de répondre à une demande importante.</p>
-<p>Cette prospérité contribua à faire de Thysdrus une ville remarquable de l’Afrique romaine. Ses demeures richement décorées, ses mosaïques et surtout son amphithéâtre monumental témoignent encore aujourd’hui de l’ambition et de la richesse de la cité antique.</p>
-<h3>De l’oliveraie à la table romaine</h3>
-<p>Pour les Romains, l’huile d’olive était un élément essentiel de la cuisine. Elle accompagnait les légumes, les céréales, les viandes et les poissons, tout en entrant dans la préparation de nombreuses sauces.</p>
-<p>Mais son usage dépassait largement la gastronomie. Elle éclairait les maisons, servait aux soins du corps et répondait à différents besoins de la vie quotidienne. Sa valeur reposait donc autant sur ses qualités alimentaires que sur ses multiples usages.</p>
-<p>À Thysdrus, l’olivier représentait ainsi un lien entre la terre, le travail des producteurs, les échanges commerciaux et la vie urbaine.</p>
-<h3>Un héritage toujours vivant à El Jem</h3>
-<p>Aujourd’hui encore, l’olivier occupe une place essentielle dans les paysages et les traditions de la Tunisie. Il relie les générations, les savoir-faire agricoles et une culture méditerranéenne profondément enracinée dans l’histoire.</p>
-<p>À Dar El Jem, nous souhaitons faire découvrir cette dimension moins connue du passé de notre ville : derrière les pierres monumentales de l’amphithéâtre se trouve aussi l’histoire d’un territoire agricole, de ses producteurs et de ses échanges.</p>
-<p>Découvrir Thysdrus, c’est donc aller au-delà des monuments. C’est comprendre comment une cité a grandi grâce aux ressources de son territoire et comment l’huile d’olive a participé à son histoire.</p>
-<blockquote>Thysdrus, une cité façonnée par la terre, enrichie par le commerce et inscrite dans le grand héritage de l’Afrique romaine.</blockquote>`,
-en:`<p>Long before it became famous for its immense amphitheatre, Thysdrus, today’s El Jem, lay at the heart of a prosperous farming region closely tied to olive growing and the oil trade.</p>
-<h3>The olive tree, a source of wealth in Roman Africa</h3>
-<p>In antiquity, olive oil was much more than a cooking ingredient. It was used to prepare meals, fuel lamps, care for the body and accompany certain religious practices. Essential to daily life, it was also a major economic resource in several regions of the Mediterranean world.</p>
-<p>In Roman Africa, olive growing became hugely important. Located in a region well suited to farming, Thysdrus benefited from this momentum. The town became an important trading centre, at the crossroads of routes linking farmland to the region’s markets.</p>
-<h3>A city made prosperous by its land</h3>
-<p>The wealth of Thysdrus cannot be understood without its hinterland. Farm produce, especially olive oil, fed the commercial activity that animated the city.</p>
-<p>Oil was transported and sold at different scales. Its production required land, specialised equipment and an organisation of labour able to meet strong demand.</p>
-<p>This prosperity helped make Thysdrus a remarkable city of Roman Africa. Its richly decorated houses, its mosaics and above all its monumental amphitheatre still bear witness to the ambition and wealth of the ancient city.</p>
-<h3>From the olive grove to the Roman table</h3>
-<p>For the Romans, olive oil was an essential part of cooking. It accompanied vegetables, cereals, meat and fish, and went into many sauces.</p>
-<p>But its use went far beyond food. It lit homes, was used for body care and met many needs of daily life. Its value lay as much in its food qualities as in its many uses.</p>
-<p>In Thysdrus, the olive tree was a link between the land, the work of producers, trade and city life.</p>
-<h3>A heritage still alive in El Jem</h3>
-<p>Today the olive tree still holds an essential place in Tunisia’s landscapes and traditions. It connects generations, farming know-how and a Mediterranean culture deeply rooted in history.</p>
-<p>At Dar El Jem, we want to share this lesser-known side of our town’s past: behind the monumental stones of the amphitheatre lies the story of a farming land, its producers and its trade.</p>
-<p>Discovering Thysdrus means going beyond the monuments, to understand how a city grew thanks to the resources of its land and how olive oil shaped its history.</p>
-<blockquote>Thysdrus, a city shaped by the land, enriched by trade and part of the great heritage of Roman Africa.</blockquote>`},
-mosaique:{
-fr:`<p>À El Jem, les mosaïques antiques racontent une histoire faite de savoir-faire, d’imagination et de richesse artistique. Bien plus que de simples décors, elles témoignent du talent des artisans qui ont façonné l’identité de l’ancienne Thysdrus.</p>
-<h3>Thysdrus, une cité où la mosaïque occupait une place de choix</h3>
-<p>Aux II<sup>e</sup> et III<sup>e</sup> siècles apr. J.-C., Thysdrus, l’actuelle El Jem, connaît un développement remarquable. Ses grandes demeures témoignent de la prospérité de la cité et du goût de ses habitants pour les décors raffinés.</p>
-<p>Les sols des maisons étaient ornés de mosaïques aux compositions variées : motifs géométriques, végétaux, animaux et scènes mythologiques. Certaines réalisations se distinguent par leur finesse d’exécution et par l’ampleur des surfaces décorées.</p>
-<p>Les découvertes archéologiques, notamment dans la Maison du Paon, la Maison des Dauphins et la Sollertiana Domus, illustrent la diversité de cet art à Thysdrus. Ces pavements constituent aujourd’hui un témoignage précieux de la vie et de la culture de l’Afrique romaine.</p>
-<h3>La technique : assembler de minuscules pièces pour créer une œuvre</h3>
-<p>La mosaïque romaine repose sur l’assemblage de petites pièces appelées <em>tesselles</em>. Taillées dans différents matériaux, elles sont disposées côte à côte pour former des motifs, des personnages ou des scènes complètes.</p>
-<p>La réalisation d’un pavement exigeait plusieurs compétences : préparer le support, concevoir le dessin, choisir les matériaux, tailler les tesselles et les poser avec précision. L’orientation de chaque pièce et l’espacement entre elles contribuaient à définir les contours, les ombres et les effets visuels.</p>
-<p>À Thysdrus, la qualité des mosaïques témoigne d’une véritable maîtrise technique. Les artisans savaient adapter la taille, la disposition et les couleurs des tesselles aux exigences de chaque composition.</p>
-<h3>Les motifs : un univers entre géométrie, nature et mythologie</h3>
-<p>Les mosaïques de Thysdrus présentent une grande variété de thèmes.</p>
-<p><strong>Les compositions géométriques</strong> jouent sur les lignes, les cercles, les entrelacs et les répétitions. Elles structurent les surfaces et créent des rythmes visuels qui peuvent encadrer ou mettre en valeur une scène centrale.</p>
-<p><strong>Les animaux et les motifs végétaux</strong> apportent mouvement et diversité aux décors. Oiseaux, poissons et autres animaux apparaissent dans les compositions, parfois associés à des éléments naturels stylisés.</p>
-<p><strong>Les scènes mythologiques</strong> témoignent de la place des récits et des figures de l’Antiquité dans l’imaginaire romain. Certaines mosaïques de Thysdrus représentent notamment des personnages liés au monde de Dionysos, comme Silène, ou des sujets issus de la tradition mythologique.</p>
-<p>Ces images n’étaient pas uniquement décoratives : elles participaient à l’identité des demeures et reflétaient les goûts, les références culturelles et parfois les aspirations de leurs propriétaires.</p>
-<h3>Les couleurs : du contraste noir et blanc aux compositions polychromes</h3>
-<p>La palette des mosaïques de Thysdrus varie selon les œuvres. Certaines compositions privilégient le contraste du noir et du blanc pour souligner les formes géométriques. D’autres utilisent une gamme plus riche de couleurs afin de représenter les animaux, les personnages, les vêtements et les éléments végétaux.</p>
-<p>Le choix des teintes permet de distinguer les formes, de créer des contrastes et de donner davantage de relief aux scènes. La disposition des tesselles contribue également à produire des effets d’ombre, de volume et de mouvement.</p>
-<p>Cette diversité montre que la mosaïque romaine ne reposait pas sur une technique uniforme : chaque décor répondait à un projet artistique et à un espace architectural particulier.</p>
-<h3>Un patrimoine qui inspire encore les mosaïstes d’aujourd’hui</h3>
-<p>Les mosaïques de Thysdrus nous invitent à regarder autrement un art que l’on pourrait croire uniquement décoratif. Derrière chaque pavement se trouvent une conception, une organisation minutieuse du travail et une connaissance approfondie des matériaux.</p>
-<p>Pour les artisans mosaïstes contemporains, cet héritage constitue une source d’inspiration exceptionnelle. Il rappelle que la mosaïque est à la fois un savoir-faire technique et un moyen d’expression artistique, capable de traverser les siècles.</p>
-<p>À Dar El Jem, cette tradition prend une dimension particulière. En faisant découvrir la mosaïque et en invitant les visiteurs à manipuler les tesselles, nous créons un lien vivant entre le patrimoine antique de Thysdrus et la pratique artisanale d’aujourd’hui.</p>`,
-en:`<p>In El Jem, ancient mosaics tell a story of skill, imagination and artistic richness. Far more than simple decoration, they bear witness to the talent of the artisans who shaped the identity of ancient Thysdrus.</p>
-<h3>Thysdrus, a city where mosaic held pride of place</h3>
-<p>In the 2nd and 3rd centuries AD, Thysdrus, today’s El Jem, grew remarkably. Its large houses reflect the city’s prosperity and its inhabitants’ taste for refined decoration.</p>
-<p>House floors were adorned with mosaics of varied compositions: geometric patterns, plants, animals and mythological scenes. Some stand out for the finesse of their execution and the size of the decorated surfaces.</p>
-<p>Archaeological finds, notably in the House of the Peacock, the House of the Dolphins and the Sollertiana Domus, show the diversity of this art in Thysdrus. These pavements are today a precious record of life and culture in Roman Africa.</p>
-<h3>The technique: assembling tiny pieces into a work of art</h3>
-<p>Roman mosaic is made by assembling small pieces called <em>tesserae</em>. Cut from different materials, they are set side by side to form patterns, figures or complete scenes.</p>
-<p>Making a pavement required several skills: preparing the base, designing the drawing, choosing the materials, cutting the tesserae and setting them precisely. The direction of each piece and the spacing between them helped define outlines, shadows and visual effects.</p>
-<p>In Thysdrus, the quality of the mosaics shows true technical mastery. Artisans knew how to adapt the size, layout and colours of the tesserae to each composition.</p>
-<h3>The motifs: a world of geometry, nature and mythology</h3>
-<p>The mosaics of Thysdrus show a great variety of themes.</p>
-<p><strong>Geometric compositions</strong> play with lines, circles, interlacing and repetition. They structure surfaces and create visual rhythms that can frame or highlight a central scene.</p>
-<p><strong>Animals and plant motifs</strong> bring movement and variety. Birds, fish and other animals appear in the compositions, sometimes alongside stylised natural elements.</p>
-<p><strong>Mythological scenes</strong> show the place of ancient stories and figures in the Roman imagination. Some mosaics of Thysdrus depict figures from the world of Dionysus, such as Silenus, or subjects from mythological tradition.</p>
-<p>These images were not only decorative: they shaped the identity of the houses and reflected the tastes, cultural references and sometimes the aspirations of their owners.</p>
-<h3>The colours: from black-and-white contrast to polychrome compositions</h3>
-<p>The palette of the Thysdrus mosaics varies from one work to another. Some compositions favour black-and-white contrast to emphasise geometric shapes. Others use a richer range of colours to depict animals, figures, clothing and plants.</p>
-<p>The choice of colours distinguishes shapes, creates contrast and gives scenes more depth. The arrangement of the tesserae also produces effects of shadow, volume and movement.</p>
-<p>This diversity shows that Roman mosaic did not rely on a single technique: each decoration answered a particular artistic project and architectural space.</p>
-<h3>A heritage that still inspires today’s mosaic makers</h3>
-<p>The mosaics of Thysdrus invite us to look differently at an art we might think is purely decorative. Behind every pavement lie a design, a careful organisation of work and a deep knowledge of materials.</p>
-<p>For contemporary mosaic artisans, this heritage is an exceptional source of inspiration. It is a reminder that mosaic is both a technical craft and a means of artistic expression, able to cross the centuries.</p>
-<p>At Dar El Jem, this tradition takes on a special meaning. By introducing visitors to mosaic and inviting them to handle the tesserae, we create a living link between the ancient heritage of Thysdrus and today’s craft.</p>`},
-coulisses:{
-fr:`<p><strong>Comment préparait-on un repas à l’époque romaine ? Chez Dar El Jem, l’expérience commence bien avant que les plats arrivent sur la table.</strong></p>
-<p>Dès les premières heures, notre chef s’active en cuisine. Les ingrédients sont préparés, les herbes aromatiques sélectionnées et les différentes étapes de la recette organisées. Chaque geste compte pour donner vie à un repas inspiré de la gastronomie de la Rome antique.</p>
-<h3>Des ingrédients aux saveurs de l’Antiquité</h3>
-<p>Huile d’olive, miel, épices, céréales et produits frais composent l’univers de notre cuisine romaine. Inspirées des traditions culinaires antiques et des recettes attribuées à Apicius, nos préparations invitent à découvrir des associations de saveurs parfois surprenantes.</p>
-<p>Notre chef adapte ces inspirations à une expérience conviviale, où la cuisine devient un moyen de raconter l’histoire.</p>
-<h3>Le plaisir de cuisiner devant vous</h3>
-<p>Pendant le cooking show, les visiteurs découvrent les différentes étapes de préparation. Les gestes du chef, les parfums qui se dégagent des plats et les explications autour des ingrédients transforment la cuisine en un véritable spectacle vivant.</p>
-<p>Ici, on ne vient pas seulement manger : on observe, on découvre et on partage un moment autour du patrimoine gastronomique romain.</p>
-<h3>Enfin, place à la dégustation !</h3>
-<p>Après la préparation vient le plaisir de se retrouver autour de la table pour savourer le repas. Les plats sont servis dans une ambiance inspirée de l’Antiquité, prolongeant cette immersion dans l’univers de Thysdrus, l’ancienne El Jem.</p>
-<p>Chez Dar El Jem, chaque cooking show est une invitation à découvrir la Rome antique autrement : à travers ses recettes, ses ingrédients et le plaisir universel de partager un repas.</p>`,
-en:`<p><strong>How was a meal prepared in Roman times? At Dar El Jem, the experience starts long before the dishes reach the table.</strong></p>
-<p>From the early hours, our chef is busy in the kitchen. Ingredients are prepared, aromatic herbs selected and each step of the recipe organised. Every gesture counts in bringing to life a meal inspired by the cuisine of ancient Rome.</p>
-<h3>Ingredients with the flavours of antiquity</h3>
-<p>Olive oil, honey, spices, cereals and fresh produce make up the world of our Roman cuisine. Inspired by ancient culinary traditions and recipes attributed to Apicius, our dishes reveal flavour combinations that are sometimes surprising.</p>
-<p>Our chef adapts these inspirations into a friendly experience, where cooking becomes a way of telling history.</p>
-<h3>The pleasure of cooking in front of you</h3>
-<p>During the cooking show, visitors discover each stage of preparation. The chef’s gestures, the aromas rising from the dishes and the stories behind the ingredients turn cooking into a real live show.</p>
-<p>Here you don’t just come to eat: you watch, discover and share a moment around Rome’s culinary heritage.</p>
-<h3>And finally, the tasting!</h3>
-<p>After the preparation comes the pleasure of gathering around the table to enjoy the meal. Dishes are served in an atmosphere inspired by antiquity, extending the immersion in the world of Thysdrus, ancient El Jem.</p>
-<p>At Dar El Jem, every cooking show is an invitation to discover ancient Rome differently: through its recipes, its ingredients and the universal pleasure of sharing a meal.</p>`}
-};
+/* Articles : chargés depuis assets/data/chroniques.json, généré à partir du back-office (Pages CMS) */
+let POSTS = [];
 
 /* ------------------------------------------------------------------ */
 /*  4. Positions des repères sur le plan (en % de l'image)             */
@@ -436,7 +276,7 @@ function renderCards() {
 
 let catFilter = 'all';
 function postCard(p) {
-  return `<a class="post" href="#${p.id}" data-post="${p.id}"><span class="ph"><img src="${IMG + p.img}" alt="" loading="lazy"></span>
+  return `<a class="post" href="#${p.id}" data-post="${p.id}"><span class="ph"><img src="${esc(p.img)}" alt="" loading="lazy"></span>
     <span class="cat">${esc(L(CATS[p.cat]))}</span><h3>${esc(L(p).t)}</h3><p>${esc(L(p).x)}</p>
     <span class="rd">${fmtDate(p.date)} · ${p.min} ${t('art.min')}</span></a>`;
 }
@@ -453,16 +293,17 @@ function bindPosts() {
 }
 function renderArticle(id) {
   const p = POSTS.find(x => x.id === id) || POSTS[0];
-  const body = L(BODIES[p.id]);
+  if (!p) return;
+  const body = L(p).body;
   const ctaExp = p.cta && EXP.find(e => e.id === p.cta);
   $('#article').innerHTML = `
     <a class="back" href="#chroniques" data-route="chroniques"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>${t('art.back')}</span></a>
     <div class="kicker" style="margin-top:2rem;color:var(--olive-text)">${esc(L(CATS[p.cat]))}</div>
     <h1 class="display h2" style="font-size:clamp(2rem,1.2rem + 2.6vw,3.4rem)">${esc(L(p).t)}</h1>
     <div class="byline" style="margin-top:1rem"><img src="${IMG}branch.svg" alt="" width="34"><span>Ridus · ${fmtDate(p.date)} · ${p.min} ${t('art.min')}</span></div>
-    <div class="cover"><img src="${IMG + p.img}" alt=""></div>
+    <div class="cover"><img src="${esc(p.img)}" alt=""></div>
     <div class="body">${body}</div>
-    ${p.fig ? `<figure class="figure">${p.fig.map(f => `<img src="${IMG + f}" alt="">`).join('')}<figcaption>Dar El Jem</figcaption></figure>` : ''}
+    ${p.fig && p.fig.length ? `<figure class="figure">${p.fig.map(f => `<img src="${esc(f)}" alt="" loading="lazy">`).join('')}<figcaption>Dar El Jem</figcaption></figure>` : ''}
     ${ctaExp ? `<div style="margin:2rem 0"><a class="btn btn-primary" href="#reserver" data-route="home">${esc(t('s.book'))} · ${esc(L(ctaExp).t)}</a></div>` : ''}`;
   $('#related').innerHTML = POSTS.filter(x => x.id !== p.id).slice(0, 3).map(postCard).join('');
   bindPosts(); bindRoutes($('#article'));
@@ -675,5 +516,9 @@ $('#drawerClose').addEventListener('click', () => toggleDrawer(false));
 }
 applyStatic(); renderMap(); renderCards(); renderBlog(); bindRoutes();
 const h = (location.hash || '').slice(1);
-if (h === 'chroniques' || h === 'agences') go(h); else if (POSTS.some(p => p.id === h)) go('article', h); else onScroll();
+if (h === 'chroniques' || h === 'agences') go(h); else onScroll();
+fetch('assets/data/chroniques.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : [])
+  .then(list => { POSTS = Array.isArray(list) ? list : []; renderBlog(); if (POSTS.some(p => p.id === h)) go('article', h); })
+  .catch(() => { POSTS = []; renderBlog(); });
 })();
