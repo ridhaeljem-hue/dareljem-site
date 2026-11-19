@@ -1,0 +1,21 @@
+/* Pages secondaires : mentions légales, confidentialité, 404 */
+.lp-head{border-bottom:1px solid var(--line);background:var(--beige)}
+.lp-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.lp-head img{height:44px;width:auto}
+.lp{max-width:46rem;margin-inline:auto;padding-block:clamp(2.5rem,6vw,5rem)}
+.lp h1{font-family:var(--f-display);font-weight:700;color:var(--pourpre);font-size:clamp(2rem,1.4rem + 2.4vw,3rem);line-height:1.1;margin:.6rem 0 1rem;text-wrap:balance}
+.lp h2{font-family:var(--f-display);font-weight:700;color:var(--pourpre);font-size:1.25rem;margin:2.6rem 0 .8rem}
+.lp p,.lp li{line-height:1.7}
+.lp ul{padding-inline-start:1.2rem}
+.lp dl{display:grid;grid-template-columns:11rem 1fr;gap:.5rem 1rem;border-top:1px solid var(--pourpre);padding-top:1rem}
+.lp dt{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rouge);padding-top:.25rem}
+.lp dd{margin:0}
+.lp a{color:var(--rouge)}
+.lp a.btn{color:var(--beige)}
+.lp .updated{color:var(--ink-soft);font-size:.9rem}
+.lp hr{border:0;border-top:1px solid var(--line);margin:3.5rem 0 1rem}
+mark.todo{background:#ffe08a;color:#3b1d25;padding:0 .25em;border-radius:3px}
+.lp-foot{background:var(--pourpre-d);color:var(--on-dark-soft);padding-block:1.6rem;font-size:.85rem}
+.lp-foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+.lp-foot a{color:var(--beige)}
+@media (max-width:560px){.lp dl{grid-template-columns:1fr}.lp dt{padding-top:.6rem}}
