@@ -1,0 +1,91 @@
+# Configuration du back-office Pages CMS (https://pagescms.org)
+# Seules les Chroniques sont modifiables depuis le back-office.
+
+media:
+  input: assets/img/chroniques
+  output: assets/img/chroniques
+  categories: [image]
+
+content:
+  - name: chroniques
+    label: Chroniques
+    description: Les articles du blog « Les Chroniques de Ridus ». Après « Save », l'article est en ligne en 1 à 2 minutes.
+    type: collection
+    path: content/chroniques
+    format: json
+    filename: "{year}-{month}-{day}-{primary}.json"
+    view:
+      fields: [titre_fr, date, categorie, publie]
+      primary: titre_fr
+      sort: [date, titre_fr]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: publie
+        label: Publié sur le site
+        type: boolean
+        default: true
+        description: Décocher pour garder l'article en brouillon (il n'apparaît pas sur le site).
+      - name: titre_fr
+        label: Titre (français)
+        type: string
+        required: true
+      - name: titre_en
+        label: Titre (anglais)
+        type: string
+        description: Facultatif. Si vide, le titre français est utilisé sur la version anglaise.
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: categorie
+        label: Catégorie
+        type: select
+        required: true
+        default: cuisine
+        options:
+          values:
+            - { value: cuisine, label: Cuisine antique }
+            - { value: mosaique, label: Mosaïque }
+            - { value: histoire, label: Histoire de Thysdrus }
+            - { value: vie, label: Vie du lieu }
+      - name: image
+        label: Photo de couverture
+        type: image
+        required: true
+        description: Photo horizontale de préférence, au format JPG. Les photos lourdes sont allégées automatiquement.
+      - name: resume_fr
+        label: Résumé (français)
+        type: text
+        description: Une ou deux phrases, affichées sur la carte de l'article.
+      - name: resume_en
+        label: Résumé (anglais)
+        type: text
+      - name: contenu_fr
+        label: Article (français)
+        type: rich-text
+        required: true
+      - name: contenu_en
+        label: Article (anglais)
+        type: rich-text
+        description: Facultatif. Si vide, le texte français est affiché sur la version anglaise.
+      - name: galerie
+        label: Photos en bas de l'article
+        type: image
+        list: true
+        description: Facultatif. Deux photos verticales donnent le meilleur rendu.
+      - name: experience
+        label: Bouton « Réserver » en fin d'article
+        type: select
+        default: aucune
+        options:
+          values:
+            - { value: aucune, label: Aucun bouton }
+            - { value: musee, label: I · Atelier et Musée Micro Mosaïque }
+            - { value: atelier, label: II · Expériences & Formations en Mosaïque }
+            - { value: restaurant, label: III · Le restaurant }
+            - { value: cooking, label: IV · Cooking show romain }
+            - { value: cafe, label: V · Café romain }
