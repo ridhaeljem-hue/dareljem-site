@@ -430,7 +430,7 @@ $$('.stepper button').forEach(b => b.addEventListener('click', () => {
 }));
 try { const d = new Date(); d.setDate(d.getDate() + 1); $('#b-date').min = d.toISOString().slice(0, 10); } catch (e) {}
 /* Formulaires → message WhatsApp pré-rempli (rédigé en français pour l'équipe) */
-const WA_NUM = '21698277634';
+const WA_NUM = '21628797817';
 const val = id => { const el = $(id); return el ? el.value.trim() : ''; };
 const optText = id => { const el = $(id); return el ? el.options[el.selectedIndex].text : ''; };
 const checkedExp = sel => $$(sel + ' input:checked').map(i => { const x = EXP.find(e => e.id === i.value); return `${x.n} · ${x.fr.t}`; });
