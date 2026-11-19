@@ -398,7 +398,9 @@ function onScroll() {
   nav.classList.toggle('solid', p > .92 || r.bottom < 80);
   if (reduce) return;
   const e = p * p;
-  $('#wall').style.transform = `scale(${1 + e * 14})`;
+  /* zoom calculé dans le dessin lui-même (pas de transform CSS) : rendu net, sans trous au défilement rapide */
+  const s = 1 + e * 14;
+  $('#wallG').setAttribute('transform', `translate(0 150) scale(${s.toFixed(4)}) translate(0 -150)`);
   $('#wall').style.opacity = String(p > .82 ? Math.max(0, 1 - (p - .82) / .12) : 1);
   $('#heroCopy').style.opacity = String(Math.max(0, 1 - p * 3));
   $('#heroCopy').style.transform = `translateY(${-p * 60}px)`;
